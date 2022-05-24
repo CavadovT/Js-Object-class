@@ -8,13 +8,13 @@ for (let i = 0; i < str.length; i++) {
   arr.push(str[i]);
 }
 
-let CountOfChars = arr.reduce((allChars, item) => {
-  if (item in allChars) {
-    allChars[item]++;
+let CountOfChars = arr.reduce((acc, item) => {
+  if (item in acc) {
+    acc[item]++;
   } else {
-    allChars[item] = 1;
+    acc[item] = 1;
   }
-  return allChars;
+  return acc;
 }, {});
 console.log(CountOfChars);
 
@@ -29,7 +29,7 @@ class CustomMatchx {
     this.num = num;
   }
   plus(num) {
-    this.num =this.num+ num;
+    this.num = this.num + num;
     return this;
   }
   minus(num) {
@@ -37,26 +37,44 @@ class CustomMatchx {
     return this;
   }
   multiple(num) {
-    this.num =this.num * num;
+    this.num = this.num * num;
     return this;
   }
-  divide(num){
-      this.num=this.num/num;
-      return this;
+  divide(num) {
+    this.num = this.num / num;
+    return this;
   }
-  toString(){
-      return this.num;
+  toString() {
+    return this.num;
   }
-  
 }
 let result = new CustomMatchx(50).plus(6).minus(30).multiple(3).divide(2);
 
 console.log(result.toString());
-
 
 /*
  Custom bir array classi yaradin.
  Hemin arrayin find ve push metodu olsun.
 */
 
-
+class Arrayy {
+  constructor(arr) {
+    this.arr = arr;
+  }
+  pushh(item) {
+    this.arr[this.arr.length] = item;
+    return this.arr;
+  }
+  findd(item) {
+    for (let i = 0; i < this.arr.length; i++)
+     {
+      if (this.arr[i] == item) {
+        return this.arr[i];
+      }
+    }return -1;
+    
+  }
+}
+let arr4=new Arrayy([2,3,5,8]);
+console.log(arr4.pushh(6));
+console.log(arr4.findd(6));
